@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GSOアイテムDPS計算</title>
+    <style>
+        #gsoForm {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+        }
+
+        #gsoForm label {
+            margin-bottom: 5px;
+        }
+
+        #gsoForm input {
+            margin-bottom: 10px;
+        }
+    </style>
+</head>
+<body>
+
+<h2>GSOアイテムDPS計算</h2>
+
+<form id="gsoForm">
+    <label for="gsoMiniDrill">GSOミニドリル:</label>
+    <input type="number" id="gsoMiniDrill" />
+    <br>
+
+    <label for="gsoRockDrill">GSO削岩ドリル:</label>
+    <input type="number" id="gsoRockDrill" />
+    <br>
+
+    <label for="gsoLowFrequencyLaserCoil">GSO低周波レーザーコイル:</label>
+    <input type="number" id="gsoLowFrequencyLaserCoil" />
+    <br>
+
+    <label for="gsoHighFrequencyLaserStud">GSO高周波レーザースタッド:</label>
+    <input type="number" id="gsoHighFrequencyLaserStud" />
+    <br>
+
+    <label for="gsoZK47SmallMachineGun">GSO ZK47小型マシンガン:</label>
+    <input type="number" id="gsoZK47SmallMachineGun" />
+    <br>
+
+    <label for="gso3PoundCannon">GSO 3ポンド砲:</label>
+    <input type="number" id="gso3PoundCannon" />
+    <br>
+
+    <label for="gsoEightBarrelMortar">GSO 八連迫撃砲:</label>
+    <input type="number" id="gsoEightBarrelMortar" />
+    <br>
+
+    <label for="gsoCombatShotgun">GSO コンバットショットガン:</label>
+    <input type="number" id="gsoCombatShotgun" />
+    <br>
+
+    <label for="gsoMegatonCannon">GSO メガトンキャノン:</label>
+    <input type="number" id="gsoMegatonCannon" />
+    <br>
+
+    <label for="gsoLargeBeltaCannon">GSO 大型ベルタ砲:</label>
+    <input type="number" id="gsoLargeBeltaCannon" />
+    <br>
+
+    <label for="gsoMissileTurret">GSO ミサイル砲台:</label>
+    <input type="number" id="gsoMissileTurret" />
+    <br>
+
+    <label for="gsoGigatonCannon">GSO ギガトンキャノン:</label>
+    <input type="number" id="gsoGigatonCannon" />
+    <br>
+
+    <button type="button" onclick="calculateDPS()">計算</button>
+</form>
+
+<p id="result"></p>
+
+<script>
+    function calculateDPS() {
+        // 入力値の取得
+        const gsoMiniDrill = parseInt(document.getElementById('gsoMiniDrill').value) || 0;
+        const gsoRockDrill = parseInt(document.getElementById('gsoRockDrill').value) || 0;
+        const gsoLowFrequencyLaserCoil = parseInt(document.getElementById('gsoLowFrequencyLaserCoil').value) || 0;
+        const gsoHighFrequencyLaserStud = parseInt(document.getElementById('gsoHighFrequencyLaserStud').value) || 0;
+        const gsoZK47SmallMachineGun = parseInt(document.getElementById('gsoZK47SmallMachineGun').value) || 0;
+        const gso3PoundCannon = parseInt(document.getElementById('gso3PoundCannon').value) || 0;
+        const gsoEightBarrelMortar = parseInt(document.getElementById('gsoEightBarrelMortar').value) || 0;
+        const gsoCombatShotgun = parseInt(document.getElementById('gsoCombatShotgun').value) || 0;
+        const gsoMegatonCannon = parseInt(document.getElementById('gsoMegatonCannon').value) || 0;
+        const gsoLargeBeltaCannon = parseInt(document.getElementById('gsoLargeBeltaCannon').value) || 0;
+        const gsoMissileTurret = parseInt(document.getElementById('gsoMissileTurret').value) || 0;
+        const gsoGigatonCannon = parseInt(document.getElementById('gsoGigatonCannon').value) || 0;
+
+        // 合計の計算
+        const totalDPS = gsoMiniDrill * 450 +
+                         gsoRockDrill * 750 +
+                         gsoLowFrequencyLaserCoil * 44 +
+                         gsoHighFrequencyLaserStud * 95 +
+                         gsoZK47SmallMachineGun * 64 +
+                         gso3PoundCannon * 325 +
+                         gsoEightBarrelMortar * 125 +
+                         gsoCombatShotgun * 55 +
+                         gsoMegatonCannon * 1000 +
+                         gsoLargeBeltaCannon * 3275 +
+                         gsoMissileTurret * 475 +
+                         gsoGigatonCannon * 2675;
+
+        // 結果の表示
+        document.getElementById('result').innerText = `合計: ${totalDPS} DPS`;
+    }
+</script>
+
+</body>
+</html>
